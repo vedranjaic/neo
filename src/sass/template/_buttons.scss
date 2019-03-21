@@ -1,0 +1,81 @@
+////
+/// Buttons
+//
+.btn {
+    @include transition(color);
+    @include transition(background-color);
+    white-space: nowrap;
+    border: 0;
+    border-radius: $radius / 2;
+    padding: 10px 15px;
+    font-size: 14px;
+    &:hover,
+    &:focus,
+    &.active {
+        &.btn-basic {
+            // background-color: lighten($grey-brand, 38%);
+            color: darken($brand-teal, 15%);
+            // background-color: lighten($brand-teal, 20%);
+        }
+        &.btn-primary {
+            background-color: darken($brand-teal, 10%);
+        }
+        &.btn-error {
+            background-color: darken(functional(red), 10%);
+        }
+        &.btn-warning {
+            background-color: darken(functional(yellow), 10%);
+        }
+        &.btn-success {
+            background-color: darken(functional(green), 10%);
+        }
+    }
+    &.btn-basic {
+        color: $grey;
+    }
+    &.btn-primary {
+        color: $white;
+        background-color: $brand-teal;
+    }
+    &.btn-error {
+        color: $white;
+        background-color: functional(red);
+    }
+    &.btn-warning {
+        color: $white;
+        background-color: functional(yellow);
+    }
+    &.btn-success {
+        color: $white;
+        background-color: functional(green);
+    }
+
+    // Sizes
+    &.btn-sm {
+        padding: 5px 15px;
+    }
+    &.btn-xs {
+        padding: 0 15px;
+    }
+
+    // Notifications
+    &[data-notification] {
+        position: relative;
+        &::after {
+            content: attr(data-notification);
+            background-color: $brand-red;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -5px;
+            right: -3px;
+            color: $white;
+            font-size: 10px;
+            font-family: $font-bold;
+        }
+    }
+}

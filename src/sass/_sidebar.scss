@@ -1,0 +1,108 @@
+////
+/// Sidebar
+//
+.sidebar {
+    @include transition(width);
+    height: 100vh;
+    width: $sidebar-w;
+    background-color: $white;
+    border-right: 1px solid $grey-border;
+
+    // Sidebar closed
+    .sidebar-closed & {
+        width: $sidebar-closed-w;
+    }
+
+    // Sidebar anchors
+    a {
+        text-decoration: none;
+    }
+}
+
+////
+/// Calendar
+//
+.tab-pane--header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: $grey-brand;
+    .list-inline {
+        a {
+            display: flex;
+            color: $grey-brand;
+            background-color: $grey-medium;
+            padding: 3px 5px;
+            border-radius: $radius / 2;
+            text-decoration: none;
+        }
+    }
+}
+.month {
+    display: flex;
+    flex-direction: column;
+    .week {
+        display: flex;
+        .day {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 30px;
+            color: $grey-brand;
+            font-size: 13px;
+            border-radius: 50%;
+            &.today {
+                color: darken($brand-teal, 20%);
+                background-color: lighten($brand-teal, 20%);
+            }
+        }
+    }
+}
+
+// Calendar agenda
+.calendar-agenda {
+    margin-top: $padding;
+    .agenda-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+        // > * {
+        //     // flex: 1;
+        // }
+        span {
+            color: $grey-brand;
+        }
+        .agenda-seeall {
+            text-align: right;
+            font-size: 12px;
+            text-decoration: none;
+        }
+    }
+    // .agenda-body {
+    //     // padding: $padding / 2;
+    // }
+    .agenda-items {
+        list-style-type: none;
+        padding-left: 0;
+        .agenda-item {
+            padding: 7px 15px;
+            border-bottom: 1px solid $grey-border;
+            .form-group {
+                align-items: baseline;
+            }
+            label {
+                text-transform: none;
+                font-family: $font-regular;
+                font-size: 14px;
+                white-space: initial;
+            }
+        }
+    }
+}

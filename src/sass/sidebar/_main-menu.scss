@@ -1,0 +1,166 @@
+////
+/// Main menu
+//
+.main-menu {
+
+    a {
+        color: $grey-brand;
+        border-bottom: 1px solid $white;
+    }
+
+    // Menu items
+    .menu-items {
+        list-style-type: none;
+        padding: 0;
+
+        // Menu item
+        & > .menu-item {
+
+            // Active menu item
+            &.active {
+                & > a {
+                    background-color: $grey-light;
+                }
+            }
+
+            // Menu items with submenu
+            &.has-submenu {
+                & > a {
+                    &::after {
+                        @include transition(transform);
+                        content: '\f107';
+                        font-family: $font-fa;
+                    }
+                }
+                .submenu-items {
+                    @include transition(height opacity);
+                    --submenuItemsHeight: auto;
+                    height: var(--submenuItemsHeight);
+                    overflow: hidden;
+                    opacity: 0;
+                    &.ready {
+                        height: 0;
+                    }
+                }
+
+                // Open submenu
+                &.open {
+                    & > a {
+                        &::after {
+                            transform: rotate(180deg);
+                        }
+                    }
+                    .submenu-items {
+                        height: var(--submenuItemsHeight);
+                        opacity: 1;
+                    }
+                }
+            }
+
+            // Anchors Level 0
+            & > a {
+                @include transition(background-color);
+                display: flex;
+                align-items: center;
+                padding-left: $padding-sidebar;
+                padding-right: $padding-sidebar;
+                padding-top: $padding-sidebar / 2;
+                padding-bottom: $padding-sidebar / 2;
+                &:hover,
+                &:focus {
+                    background-color: $grey-light;
+                }
+
+                .sidebar-closed & {
+                    justify-content: space-around;
+                    &:hover,
+                    &:focus {
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Menu item title
+        .menu-item--title {
+            span {
+                @extend %text-overflow;
+                flex: 1;
+
+                .sidebar-closed & {
+                    display: none;
+                }
+            }
+        }
+
+        // Submenu items
+        .submenu-items {
+            padding: 0;
+
+            // Submenu item
+            & > .submenu-item {
+                @include transition(color);
+
+                // Active submenu item
+                &.active {
+                    & > a {
+                        background-color: $grey-light;
+                        color: $brand-teal;
+                        &::before {
+                            @include opacity(1);
+                            content: '\f192';
+                            color: $brand-teal;
+                        }
+                    }
+                }
+
+                // Submenu anchor Level 1
+                & > a {
+                    @include transition(background-color color);
+                    display: flex;
+                    padding-left: $padding-sidebar;
+                    padding-right: $padding-sidebar;
+                    padding-top: $padding-sidebar / 2;
+                    padding-bottom: $padding-sidebar / 2;
+                    font-size: 0.85em;
+                    &::before {
+                        @include transition(color);
+                        @include opacity(0.2);
+                        content: '\f10c';
+                        display: flex;
+                        align-items: center;
+                        font-family: $font-fa;
+                        font-size: 14px;
+                        padding-right: 0.8em;
+                    }
+                    &:hover,
+                    &:focus {
+                        background-color: $grey-light;
+                        color: $brand-teal;
+                    }
+                    
+                    .sidebar-closed & {
+                        padding-left: $padding-sidebar;
+                        
+                        // Submenu title
+                        .submenu-item {
+                            display: block;
+                        }
+                        .submenu-item--title {
+                            display: none;
+                        }
+                    }
+                }
+                
+                // Submenu title
+                .submenu-item--title {
+                    span {
+                        @extend %text-overflow;
+                    }
+                }
+            }
+        }
+    }
+}

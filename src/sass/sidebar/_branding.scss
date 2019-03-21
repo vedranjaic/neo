@@ -1,0 +1,38 @@
+////
+/// Branding
+//
+.branding {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $header-h;
+    width: $sidebar-w;
+    padding-left: $padding-sidebar;
+    padding-right: $padding-sidebar;
+    border-bottom: 1px solid $grey-border;
+
+    .sidebar-closed & {
+        width: $sidebar-closed-w;
+    }
+
+    // Brand logo
+    .logo {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding-top: $padding / 2;
+        padding-bottom: $padding / 2;
+    }
+
+    // Toggle items
+    .toggle-item {
+        margin-right: $padding-sidebar / 2;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .fa-trello {
+        font-size: 1.5em;
+        color: $grey;
+    }
+}

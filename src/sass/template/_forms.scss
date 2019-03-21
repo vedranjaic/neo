@@ -1,0 +1,190 @@
+////
+/// Forms
+//
+// Form group
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: $padding / 2;
+    white-space: nowrap;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &.form-column {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    label {
+        display: block;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        color: $grey-brand;
+        font-size: 12px;
+        font-family: $font-bold;
+    }
+
+    // Form element
+    .form-element {
+        display: block;
+        width: 100%;
+        height: $form-element-sm;
+    }
+}
+
+// Inputs
+input {
+    width: 100%;
+    border: 0;
+    color: $grey-dark;
+}
+input[type="text"] {
+    display: flex;
+    align-items: center;
+    background-color: lighten($grey-brand, 38%);
+    border-radius: $radius / 2;
+}
+
+////
+/// Search
+//
+.search {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 400px;
+    
+    // Search form
+    form[role="search"] {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+        &::before {
+            @include transition(color);
+            content: '\f002';
+            font-family: $font-fa;
+            padding-right: 10px;
+            color: lighten($grey, 20%);
+        }
+
+        // Input field
+        input[type="search"] {
+            flex: 1;
+            border-bottom: 1px solid transparent;
+            background-color: transparent;
+            
+            // Placeholder
+            &::placeholder {
+                @include transition(color);
+                color: lighten($grey, 15%);
+                font-weight: normal;
+                font-style: italic;
+                // color: $grey;
+            }
+
+            // Focus
+            &:focus {
+                border-bottom: 1px dashed lighten($grey, 15%);
+                &::placeholder {
+                    color: transparent;
+                }
+                & ~ button[type="submit"] {
+                    opacity: 1;
+                }
+            }
+        }
+
+        // Submit button
+        button[type="submit"] {
+            @include transition(opacity color);
+            opacity: 0;
+            background-color: transparent;
+            border: 0;
+            font-size: 12px;
+            color: $grey-dark;
+            &:hover,
+            &:focus {
+                color: $brand-teal;
+            }
+        }
+    }
+}
+
+// Select
+.form-select {
+    width: 100%;
+    position: relative;
+    &::after {
+        content: '\f107';
+        font-family: $font-fa;
+        position: absolute;
+        right: $padding / 2;
+        top: $form-element-size / 2;
+        margin-top: -0.6em;
+        font-size: 20px;
+    }
+}
+select {
+    // padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    padding-left: $padding / 3;
+    border: 0;
+    appearance: none;
+    background-color: lighten($grey-brand, 38%);
+}
+
+// Checkbox
+.form-checkbox {
+    @include checkbox($grey-brand-font, '\f0c8', '\f14a', $brand-teal);
+    input + label,
+    & + label {
+        margin-bottom: 0;
+        &::before {
+            @include transition(color);
+        }
+    }
+    & + label {
+        margin-left: 5px;
+        cursor: pointer;
+    }
+}
+// Checkbox in dropdown
+.dropdown-menu--checkbox {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    & > li {
+        @include transition(background-color);
+        padding: 2px 15px;
+        &:hover:not(.dropdown-actions),
+        &:focus {
+            background-color: $grey-bg;
+            .form-checkbox {
+                label {
+                    &::before {
+                        color: $brand-teal;
+                    }
+                }
+            }
+        }
+        label {
+            text-transform: none;
+        }
+    }
+}
+
+// Badges
+.badge {
+    position: absolute;
+    display: flex;
+    top: -7px;
+    right: -9px;
+    width: 15px;
+    height: 15px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: functional(red);
+    font-size: 0.6em;
+    color: $white;
+}

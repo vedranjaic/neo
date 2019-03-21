@@ -1,0 +1,64 @@
+////
+/// Tabs
+//
+.nav-tabs {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    padding-bottom: $header-h / 3;
+    li {
+        flex: 1;
+        text-align: center;
+        border-right: 1px solid $grey-border;
+        border-bottom: 1px solid $grey-border;
+        &:last-child {
+            border-right: 0;
+        }
+
+        // Active tab
+        &.active {
+            border-top: 1px solid $grey-border;
+            border-bottom: 0;
+            a {
+                color: $grey-brand;
+                background-color: $white;
+            }
+        }
+        a {
+            @include transition(background-color);
+            display: flex;
+            height: $header-h / 2;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: $grey-brand;
+            background-color: $grey-light;
+            &:hover {
+                background-color: $white;
+            }
+            span {
+                display: block;
+                font-size: 0.8em;
+                .sidebar-closed & {
+                    display: none;
+                }
+            }
+            .icon {
+                display: none;
+                .sidebar-closed & {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+////
+/// Tab pane
+//
+.tab-pane {
+    display: none;
+    &.active {
+        display: block;
+    }
+}

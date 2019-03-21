@@ -1,0 +1,97 @@
+// Template
+// Colors
+$black: #161616;
+$white: #ffffff;
+
+/// Functional colors
+$functional: (
+	yellow: #ffca3a,
+	green: #8dc63f,
+	blue: #1982c4,
+	red: #ff595e
+);
+
+/// Brand colors
+$brand-teal: #96ced3;
+$brand-green: #b5d16c;
+$brand-green-light: #cbde9a;
+$brand-red: #d39b96;
+
+/// Monochrome
+$grey: #acacac;
+$grey-bg: #f4f6f7;
+$grey-light: #f3f5f6;
+$grey-medium: #f1f1f1;
+$grey-border: #e7e7e7;
+$grey-dark: #7b7b7b;
+$grey-brand: #788e9a;
+$grey-brand-light: #dde3e6;
+$grey-brand-font: #dde2e5;
+
+// Layout vars
+$radius: 10px;
+$padding: 30px;
+$padding-sidebar: 20px;
+
+$ease: 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+
+// Form
+$form-element-size: 34px;
+$form-element-xs: $form-element-size - 8px;
+$form-element-sm: $form-element-size - 4px;
+$form-element-lg: $form-element-size + 4px;
+
+// Header
+$header-h: 60px;
+
+// Sidebar
+$sidebar-h: calc(100vh - #{$header-h});
+$sidebar-w: 250px;
+$sidebar-closed-w: 120px;
+
+////
+/// Body
+//
+body {
+	font-family: $font-regular;
+	letter-spacing: -0.03em;
+	background-color: $grey-bg;
+
+	// Sizing box model
+	* {
+		box-sizing: border-box;
+	}
+
+	// Anchors
+	a {
+		color: currentColor;
+	}
+
+	// SVG
+	svg {
+		width: auto;
+		height: 100%;
+	}
+}
+
+////
+/// Container
+//
+.container {
+	display: flex;
+
+	// Content container
+	.content-container {
+		flex: 1;
+	}
+
+	// Page content
+	.page-content {
+		padding: 2em 30px;
+	}
+
+	// Content
+	.content {
+		display: flex;
+	}
+}

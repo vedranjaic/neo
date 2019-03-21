@@ -1,0 +1,47 @@
+/*!
+ * Project name: NEO Framework
+ * Version: 1.0
+ * Boilerplate template: buildr v0.62
+ * Author: NEOS
+ * URL: neos.hr
+ */
+
+// Bootstrap
+@import "bootstrap/normalize";
+
+// Settings
+@import "functions";
+@import "mixins";
+// Typography
+@import "typography";
+// Template
+@import "template";
+@import "template/forms";
+@import "template/buttons";
+@import "template/tabs";
+@import "template/lists";
+@import "template/dropdown";
+@import "template/panels";
+@import "template/modal";
+@import "template/tables";
+// Helpers and Extenders
+@import "helpers";
+@import "placeholders";
+// Animations
+@import "animations";
+
+// -----------[ style.css start ]
+
+// Pages layout
+@import "header";
+@import "sidebar";
+@import "sidebar/branding";
+@import "sidebar/menu-toggler";
+@import "sidebar/main-menu";
+@import "layout";
+@import "layout-index";
+@import "footer";
+
+// -------------[ style.css end ]
+
+

@@ -1,0 +1,227 @@
+////
+/// Tables
+//
+.table-responsive {
+    flex: 1;
+}
+.table {
+    width: 100%;
+    border-collapse:separate; 
+    border-spacing: 0 4px;
+    color: $grey-brand;
+
+    // Thead
+    thead {
+        tr {
+            th {
+                padding: 5px 0 5px 20px;
+                text-align: left;
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                }
+                &:hover,
+                &:focus {
+                    .table-sort-filter {
+                        opacity: 1;
+                    }
+                    &.column-actions {
+                        .icon {
+                            background-color: lighten($grey-brand, 38%);
+                        }
+                    }
+                }
+                span {
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    font-size: 12px;
+                    font-family: $font-bold;
+                    color: lighten($grey-brand, 20%);
+                }
+                &.column-sorted {
+                    span {
+                        color: $grey-brand;
+                    }
+                    .table-sort-filter {
+                        color: $grey-brand;
+                        opacity: 1;
+                    }
+                }
+                &.column-actions,
+                .table-filter {
+                    &.open {
+                        .icon {
+                            background-color: lighten($grey-brand, 38%);
+                        }
+                    }
+                }
+                .icon {
+                    @include transition(background-color);
+                    color: lighten($grey-brand, 10%);
+                    background-color: $white;
+                    padding: 6px 10px;
+                    border-radius: $radius / 2;
+                    font-size: 12px;
+                }
+                .table-actions {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                .table-sort-filter {
+                    @include transition(opacity);
+                    opacity: 0;
+                    & > li {
+                        margin-left: 10px;
+                    }
+                    .dropdown-actions {
+                        border-top: 1px solid $grey-border;
+                        margin-top: 5px;
+                    }
+                    .dropdown-actions-list {
+                        margin-top: 5px;
+                        justify-content: space-between;
+                        li {
+                            padding: 0;
+                            font-size: 12px;
+                            margin: 0;
+                            a {
+                                @include transition(color);
+                                padding: 0;
+                                text-decoration: none;
+                                &:hover,
+                                &:focus {
+                                    color: $brand-teal;
+                                }
+                            }
+                        }
+                    }
+                }
+                .table-sort {
+                    @include transition(opacity);
+                    font-size: 16px;
+                    float: right;
+                    svg {
+                        width: 10px;
+                        height: 12px;
+                        rect {
+                            fill: $grey-brand;
+                        }
+                    }
+                    #sortAsc {
+                        display: none;
+                    }
+                }
+                .table-filter {
+
+                }
+            }
+        }
+    }
+
+    // Tbody
+    tbody {
+        tr {
+            @include transition(transform);
+            border-radius: $radius;
+            // &:nth-child(odd) {
+            //     td {
+            //         background-color: $white;
+            //     }
+            // }
+            &:hover,
+            &:focus,
+            &.active {
+                box-shadow: 0 4px 10px $grey-brand-light;
+                transform: scale(1.01);
+                .select,
+                .row-actions {
+                    .checkbox,
+                    .icon {
+                        color: $brand-teal;
+                    }
+                }
+                td {
+                }
+            }
+            &.active {
+                box-shadow: none;
+                td {
+                    background-color: lighten($grey-brand, 38%);
+                }
+            }
+            td {
+                @include transition(box-shadow);
+                padding: 15px 20px;
+                background-color: $white;
+                &:first-child {
+                    border-top-left-radius: $radius;
+                    border-bottom-left-radius: $radius;
+                }
+                &:last-child {
+                    border-top-right-radius: $radius;
+                    border-bottom-right-radius: $radius;
+                }
+                &.price-total {
+                    font-family: $font-bold;
+                    color: $brand-red;
+                }
+            }
+        }
+    }
+
+    // All rows and columns
+    tr {
+        th,
+        td {
+            box-sizing: border-box;
+            &.select-all,
+            &.select {
+                width: 45px;
+                .checkbox {
+                    @include transition(color);
+                    font-size: 1.2em;
+                    color: $grey-brand-font;
+                }
+            }
+            &.row-actions {
+                width: 45px;
+                // text-align: center;
+                color: $grey-brand-font;
+            }
+        }
+    }
+
+    ////
+    /// Table hover
+    //
+    &.table-hover {
+        tbody {
+            tr {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    ////
+    /// Grid view
+    //
+    .view-grid & {
+        display: flex;
+        flex-direction: column;
+        thead,
+        tbody {
+            tr {
+                display: flex;
+                td {
+                    flex: 1;
+                }
+            }
+        }
+
+    }
+}

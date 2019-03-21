@@ -1,0 +1,29 @@
+// Menu toggler
+.menu-toggler {
+    display: flex;
+    flex-direction: column;
+    &:hover,
+    &:focus {
+        .bar {
+            background-color: $grey-brand;
+        }
+        .bar-middle {
+            width: $padding-sidebar * 2/3;
+        }
+    }
+    .sidebar-closed & {
+        align-items: flex-end;
+    }
+    .bar {
+        @include transition(background-color width);
+        display: block;
+        width: $padding-sidebar;
+        height: 2px;
+        margin-bottom: 6px;
+        border-radius: 2px;
+        background-color: $grey-border;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

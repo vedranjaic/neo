@@ -1,0 +1,69 @@
+// Header
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $white;
+    height: $header-h;
+    padding: 0 $padding;
+    border-bottom: 1px solid $grey-border;
+
+    // Header actions
+    .header-actions {
+        display: flex;
+
+        .list-inline {
+            & > li {
+                position: relative;
+                margin-left: $padding / 2;
+                margin-right: $padding / 2;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .dropdown-menu {
+            top: $padding + $padding / 2;
+            border-radius: 0 0 5px 5px;
+        }
+
+        // Notifications
+        .notifications {
+            .icon {
+                font-size: 1.2em;
+                color: $grey;
+            }
+        }
+
+        // Messages
+        .messages {
+            .icon {
+                font-size: 1.2em;
+                color: $grey;
+            }
+        }
+
+        // User
+        .user {
+            display: flex;
+            align-items: center;
+            .user--img {
+                max-width: 30px;
+                max-height: 30px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .user--name {
+                color: $grey-brand;
+                span {
+                    flex: 1;
+                    padding-right: $padding / 4;
+                }
+            }
+        }
+    }
+}
